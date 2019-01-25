@@ -1,0 +1,29 @@
+CREATE TABLE JP_MESH_SUMMARY (
+    PARTITION_DATE TEXT,
+    PARTITION_KEY TEXT,
+    GEOM_LEVEL INTEGER,
+    CODE TEXT,
+    GEOM_JSON TEXT,
+    GEOM GEOMETRY(SRID=4326),
+    RSRP REAL,
+    RSRQ REAL,
+    SINR REAL,
+    CQI REAL,
+    THP_DL REAL,
+    THP_UL REAL,
+    PCI REAL,
+    CELL_MAX_TX_POWER REAL,
+    TRAFFIC_LOAD REAL,
+    RS_POWER REAL,
+    OK_COUNT INTEGER,
+    FAIL_COUNT INTEGER,
+    DROP_COUNT INTEGER
+)
+datascope       LOCAL
+ramexpire       30
+diskexpire      34200
+partitionkey    PARTITION_KEY
+partitiondate   PARTITION_DATE
+partitionrange  60
+extension       geospatial
+;
